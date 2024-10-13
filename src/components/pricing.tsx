@@ -1,10 +1,11 @@
 "use client";
 import { CircleCheck } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Button } from "./ui/button";
-import { Switch } from "./ui/switch";
-import { Label } from "./ui/label";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Pricing = () => {
   const [isYearly, setIsYearly] = useState<boolean>(false);
@@ -41,103 +42,87 @@ const Pricing = () => {
           </Label>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-          <Card className="h-[530px] bg-zinc-200 dark:bg-zinc-800">
-            <CardHeader>
-              <CardTitle className="text-xs font-normal">FREE</CardTitle>
-              <div className="text-4xl font-bold">$0/m</div>
-              <p className="text-sm">Free forever</p>
-            </CardHeader>
-            <CardContent className="flex flex-col justify-between h-3/4">
-              <div className="grid gap-4">
-                <div className="h-[1px] bg-zinc-800 dark:bg-white" />
-                {[
-                  "Basic AI-generated designs",
-                  "Access to customization tools",
-                  "Standard templates library",
-                  "5 projects per month",
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <CircleCheck className="h-4 w-4 text-zinc-800 dark:text-white" />
-                    <span className="text-sm">{feature}</span>
+          {[
+            {
+              title: "FREE",
+              price: "$0/m",
+              features: [
+                "Basic AI-generated designs",
+                "Access to customization tools",
+                "Standard templates library",
+                "5 projects per month",
+              ],
+              bgColor: "bg-zinc-200 dark:bg-zinc-800",
+            },
+            {
+              title: "BASIC",
+              price: !isYearly ? "$14.99/m" : "$11.93/m",
+              features: [
+                "Advanced AI-generated designs",
+                "Full access to customization tools",
+                "Premium templates library",
+                "Unlimited projects",
+                "Real-time collaboration",
+                "Priority email support",
+              ],
+              bgColor: "bg-primary text-white",
+            },
+            {
+              title: "PRO",
+              price: !isYearly ? "$29.99/m" : "$24.93/m",
+              features: [
+                "Basic AI-generated designs",
+                "Dedicated account manager",
+                "Custom AI solutions and designs",
+                "Onboarding and training sessions",
+                "24/7 priority support",
+                "Advanced analytics and reporting",
+                "Secure cloud storage",
+              ],
+              bgColor: "bg-zinc-200 dark:bg-zinc-800",
+            },
+          ].map((plan, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className={`h-[530px] ${plan.bgColor}`}>
+                <CardHeader>
+                  <CardTitle className="text-xs font-normal">
+                    {plan.title}
+                  </CardTitle>
+                  <div className="text-4xl font-bold">{plan.price}</div>
+                  <p className="text-sm">
+                    Billed {!isYearly ? "Monthly" : "Yearly"}
+                  </p>
+                </CardHeader>
+                <CardContent className="flex flex-col justify-between h-3/4">
+                  <div className="grid gap-4">
+                    <div className="h-[1px] bg-zinc-800 dark:bg-white" />
+                    {plan.features.map((feature, i) => (
+                      <div key={i} className="flex items-center space-x-2">
+                        <CircleCheck className="h-4 w-4 text-zinc-800 dark:text-white" />
+                        <span className="text-sm">{feature}</span>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-              <Button
-                variant="outline"
-                className="w-full bg-transparent text-primary border-primary hover:bg-primary hover:text-white"
-              >
-                Get Started
-              </Button>
-            </CardContent>
-          </Card>
-          <Card className="h-[530px] bg-primary text-white">
-            <CardHeader>
-              <CardTitle className="text-xs font-normal">BASIC</CardTitle>
-              <div className="text-4xl font-bold">
-                {!isYearly ? "$14.99/m" : "$11.93/m"}
-              </div>
-              <p className="text-sm">
-                Billed {!isYearly ? "Monthly" : "Yearly"}
-              </p>
-            </CardHeader>
-            <CardContent className="flex flex-col justify-between h-3/4">
-              <div className="grid gap-4">
-                <div className="h-[1px] bg-white" />
-                {[
-                  "Advanced AI-generated designs",
-                  "Full access to customization tools",
-                  "Premium templates library",
-                  "Unlimited projects",
-                  "Real-time collaboration",
-                  "Priority email support",
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <CircleCheck className="h-4 w-4 text-white" />
-                    <span className="text-sm">{feature}</span>
-                  </div>
-                ))}
-              </div>
-              <Button className="w-full bg-white text-zinc-800 hover:bg-gray-200">
-                Get Started
-              </Button>
-            </CardContent>
-          </Card>
-          <Card className="h-[530px] bg-zinc-200 dark:bg-zinc-800">
-            <CardHeader>
-              <CardTitle className="text-xs font-normal">PRO</CardTitle>
-              <div className="text-4xl font-bold">
-                {!isYearly ? "$29.99/m" : "$24.93/m"}
-              </div>
-              <p className="text-sm">
-                Billed {!isYearly ? "Monthly" : "Yearly"}
-              </p>
-            </CardHeader>
-            <CardContent className="flex flex-col justify-between h-3/4">
-              <div className="grid gap-4">
-                <div className="h-[1px] bg-zinc-800 dark:bg-white" />
-                {[
-                  "Basic AI-generated designs",
-                  "Dedicated account manager",
-                  "Custom AI solutions and designs",
-                  "Onboarding and training sessions",
-                  "24/7 priority support",
-                  "Advanced analytics and reporting",
-                  "Secure cloud storage",
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-2">
-                    <CircleCheck className="h-4 w-4 text-zinc-800 dark:text-white" />
-                    <span className="text-sm">{feature}</span>
-                  </div>
-                ))}
-              </div>
-              <Button
-                variant="outline"
-                className="w-full bg-transparent text-primary border-primary hover:bg-primary hover:text-white"
-              >
-                Get Star
-              </Button>
-            </CardContent>
-          </Card>
+                  <Button
+                    variant={plan.title === "BASIC" ? "default" : "outline"}
+                    className={`w-full ${
+                      plan.title !== "BASIC"
+                        ? "bg-transparent text-primary border-primary hover:bg-primary hover:text-white"
+                        : "bg-white text-zinc-800 hover:bg-gray-200"
+                    }`}
+                  >
+                    Get Started
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>

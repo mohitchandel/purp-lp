@@ -1,9 +1,12 @@
+"use client";
 import {
   Accordion,
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
 } from "@radix-ui/react-accordion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const Faq = () => {
   const faq = [
@@ -39,6 +42,9 @@ const Faq = () => {
     },
   ];
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
     <div className="py-12 md:px-0 px-6 overflow-hidden mt-20">
       <div className="relative container md:max-w-[1200px] mx-auto bg-zinc-200 dark:bg-zinc-800 bg-opacity-0.5 overflow-hidden rounded-3xl px-10 py-12">
@@ -54,20 +60,27 @@ const Faq = () => {
             </p>
           </div>
           <div className="flex flex-col justify-center items-center py-12 lg:py-2">
-            <Accordion type="single" collapsible className="w-full">
-              {faq.map((item, index) => (
-                <AccordionItem
-                  value={`item-${index + 1}`}
-                  key={index}
-                  className="py-4 border-b border-zinc-300 dark:border-zinc-700"
-                >
-                  <AccordionTrigger className="text-md font-bold text-start">
-                    {item.title}
-                  </AccordionTrigger>
-                  <AccordionContent>{item.description}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+            <motion.div
+              ref={ref}
+              initial={{ opacity: 0, y: 50 }} // Initial state
+              animate={isInView ? { opacity: 1, y: 0 } : {}} // Animation state
+              transition={{ duration: 0.5 }} // Transition settings
+            >
+              <Accordion type="single" collapsible className="w-full">
+                {faq.map((item, index) => (
+                  <AccordionItem
+                    value={`item-${index + 1}`}
+                    key={index}
+                    className="py-4 border-b border-zinc-300 dark:border-zinc-700"
+                  >
+                    <AccordionTrigger className="text-md font-bold text-start">
+                      {item.title}
+                    </AccordionTrigger>
+                    <AccordionContent>{item.description}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </motion.div>
           </div>
         </div>
       </div>

@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Hexagon, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,12 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="py-10 md:px-0 px-6">
+    <motion.nav
+      className="py-10 md:px-0 px-6"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="container-fluid md:max-w-[1200px] mx-auto flex justify-between items-center">
         <Link href="/" className="text-xl font-bold flex items-center gap-1">
           <Hexagon />
@@ -71,24 +77,30 @@ const Navbar = () => {
               sideOffset={0}
               align="end"
             >
-              {menuItems.map((item) => (
-                <DropdownMenuItem
+              {menuItems.map((item, index) => (
+                <motion.div
                   key={item.name}
-                  className="rounded-none hover:bg-transparent focus:bg-transparent h-10"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={
+                    isOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }
+                  }
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
-                  <Link
-                    href={item.href}
-                    className="w-full p-2 text-lg hover:underline hover:bg-transparent"
-                  >
-                    {item.name}
-                  </Link>
-                </DropdownMenuItem>
+                  <DropdownMenuItem className="rounded-none hover:bg-transparent focus:bg-transparent h-10">
+                    <Link
+                      href={item.href}
+                      className="w-full p-2 text-lg hover:underline hover:bg-transparent"
+                    >
+                      {item.name}
+                    </Link>
+                  </DropdownMenuItem>
+                </motion.div>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

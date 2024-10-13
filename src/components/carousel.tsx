@@ -1,7 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { MoveRight, MoveLeft } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
 const testimonials = [
   {
     id: 1,
@@ -28,6 +30,7 @@ const testimonials = [
     text: "Using this AI-powered tool has completely transformed how I approach my projects. It delivers professional designs consistently. Highly recommend it!",
   },
 ];
+
 const Carousel = () => {
   const [startIndex, setStartIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -55,6 +58,7 @@ const Carousel = () => {
       return () => clearTimeout(timer);
     }
   }, [isAnimating]);
+
   return (
     <div className="py-12 px-6 mt-20">
       <div className="container mx-auto md:max-w-[1200px]">
@@ -86,35 +90,35 @@ const Carousel = () => {
         </div>
       </div>
       <div className="overflow-hidden">
-        <div
+        <motion.div
           className="flex transition-transform duration-300 ease-in-out"
           style={{ transform: `translateX(-${startIndex * 25}%)` }}
         >
           {testimonials
             .concat(testimonials.slice(0, 3))
             .map((testimonial, index) => (
-              <div
+              <motion.div
                 key={`${testimonial.id}-${index}`}
                 className="w-1/2 lg:w-1/4 flex-shrink-0 px-2"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <div className="bg-zinc-200 dark:bg-zinc-800 p-6 rounded-lg h-full">
                   <div className="flex items-center mb-4">
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
-                      className="w-12 h-12 rounded-full mr-4"
+                      className="w-12 h-12 rounded-full mr-3"
                     />
-                    <h3 className="text-2xl font-semibold">
-                      {testimonial.name}
-                    </h3>
+                    <h2 className="font-medium text-lg">{testimonial.name}</h2>
                   </div>
-                  <p className="dark:text-zinc-100 text-lg">
-                    {testimonial.text}
-                  </p>
+                  <p className="text-secondary-content">{testimonial.text}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

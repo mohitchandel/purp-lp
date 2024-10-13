@@ -1,6 +1,18 @@
+"use client";
+import { useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import { useRef } from "react";
 import { MoveUpRight } from "lucide-react";
 
 const Features = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const animationVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
   return (
     <div className="py-12 px-6 mt-20">
       <div className="container mx-auto md:max-w-[1200px]">
@@ -14,8 +26,17 @@ const Features = () => {
           visuals to timeless craftsmanship, and witness how AI can turn your
           wildest ideas into stunning realities.
         </p>
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 mt-10">
-          <div className="lg:col-span-2 h-[324px] hover:text-white hover:bg-primary dark:hover:bg-primary rounded-2xl p-6 dark:bg-zinc-800 bg-zinc-200 group">
+        <motion.div
+          ref={ref}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={animationVariants}
+          className="grid grid-cols-1 lg:grid-cols-5 gap-5 mt-10"
+        >
+          <motion.div
+            className="lg:col-span-2 h-[324px] hover:text-white hover:bg-primary dark:hover:bg-primary rounded-2xl p-6 dark:bg-zinc-800 bg-zinc-200 group"
+            variants={animationVariants}
+          >
             <div className="h-full flex flex-col justify-between">
               <div className="flex">
                 <p className="leading-tight">
@@ -29,8 +50,11 @@ const Features = () => {
               </div>
               <h3 className="text-4xl font-[500]">Witness the Future</h3>
             </div>
-          </div>
-          <div className="lg:col-span-3 h-[324px] hover:text-white hover:bg-primary dark:hover:bg-primary rounded-2xl p-6 dark:bg-zinc-800 bg-zinc-200 group">
+          </motion.div>
+          <motion.div
+            className="lg:col-span-3 h-[324px] hover:text-white hover:bg-primary dark:hover:bg-primary rounded-2xl p-6 dark:bg-zinc-800 bg-zinc-200 group"
+            variants={animationVariants}
+          >
             <div className="h-full flex flex-col justify-between">
               <div className="flex">
                 <div className="leading-tight w-full">
@@ -46,9 +70,12 @@ const Features = () => {
               </div>
               <h3 className="text-4xl font-[500]">Visualize the Impossible</h3>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-3 h-[324px] hover:text-white hover:bg-primary dark:hover:bg-primary rounded-2xl p-6 dark:bg-zinc-800 bg-zinc-200 group">
+          <motion.div
+            className="lg:col-span-3 h-[324px] hover:text-white hover:bg-primary dark:hover:bg-primary rounded-2xl p-6 dark:bg-zinc-800 bg-zinc-200 group"
+            variants={animationVariants}
+          >
             <div className="h-full flex flex-col justify-between">
               <div className="flex">
                 <div className="leading-tight w-full">
@@ -64,8 +91,11 @@ const Features = () => {
               </div>
               <h3 className="text-4xl font-[500]">Synergy and Style</h3>
             </div>
-          </div>
-          <div className="lg:col-span-2 h-[324px] hover:text-white hover:bg-primary dark:hover:bg-primary rounded-2xl p-6 dark:bg-zinc-800 bg-zinc-200 group">
+          </motion.div>
+          <motion.div
+            className="lg:col-span-2 h-[324px] hover:text-white hover:bg-primary dark:hover:bg-primary rounded-2xl p-6 dark:bg-zinc-800 bg-zinc-200 group"
+            variants={animationVariants}
+          >
             <div className="h-full flex flex-col justify-between">
               <div className="flex">
                 <p className="leading-tight">
@@ -79,8 +109,8 @@ const Features = () => {
               </div>
               <h3 className="text-4xl font-[500]">Timeless Precision</h3>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );

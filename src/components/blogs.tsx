@@ -1,5 +1,7 @@
 "use client";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const Blogs = () => {
   const blogPosts = [
@@ -26,24 +28,41 @@ const Blogs = () => {
     },
   ];
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
     <div className="py-12 px-6 mt-20">
       <div className="container mx-auto md:max-w-[1200px]">
-        <h1 className="font-semibold text-4xl lg:text-6xl max-w-2xl leading-snug">
+        <motion.h1
+          ref={ref}
+          initial={{ opacity: 0, y: 20 }} // Initial state
+          animate={isInView ? { opacity: 1, y: 0 } : {}} // Animation state
+          transition={{ duration: 0.5 }} // Transition settings
+          className="font-semibold text-4xl lg:text-6xl max-w-2xl leading-snug"
+        >
           Stay Inspired with Our Latest{" "}
           <span className="text-primary">Insights</span>
-        </h1>
-        <p className="text-lg text-secondary-content max-w-2xl mt-2 leading-tight">
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }} // Initial state
+          animate={isInView ? { opacity: 1, y: 0 } : {}} // Animation state
+          transition={{ duration: 0.5, delay: 0.1 }} // Delay for staggered effect
+          className="text-lg text-secondary-content max-w-2xl mt-2 leading-tight"
+        >
           Dive into our blog for the latest trends, tips, and insights in the
           world of design and AI technology. Whether you’re looking for
           inspiration, tutorials, or industry news, our articles are crafted to
           keep you informed and inspired.
-        </p>
+        </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
           {blogPosts.map((post) => (
-            <div
+            <motion.div
               key={post.id}
+              initial={{ opacity: 0, y: 20 }} // Initial state
+              animate={isInView ? { opacity: 1, y: 0 } : {}} // Animation state
+              transition={{ duration: 0.5, delay: 0.2 }} // Delay for staggered effect
               className="dark:bg-zinc-800 bg-zinc-200 rounded-lg overflow-hidden group"
             >
               <div className="relative overflow-hidden">
@@ -60,7 +79,7 @@ const Blogs = () => {
                 </div>
                 <h3 className="text-2xl font-semibold mb-4">{post.title}</h3>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
         <div className="my-6 flex justify-center items-center">

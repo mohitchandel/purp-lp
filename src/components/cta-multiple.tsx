@@ -1,11 +1,23 @@
-import { Button } from "./ui/button";
+"use client";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { Button } from "@/components/ui/button";
 
 const CtaMultiple = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
   return (
     <div className="py-24 px-6">
       <div className="container mx-auto max-w-[1200px]">
         <div className="flex flex-col gap-32">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+          <motion.div
+            ref={ref}
+            className="flex flex-col lg:flex-row items-center justify-between gap-10"
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
             <div className="flex flex-col w-full lg:w-2/3">
               <h2 className="text-4xl lg:text-5xl font-[500] w-full lg:w-1/2 leading-snug">
                 High-Resolution Outputs
@@ -19,14 +31,29 @@ const CtaMultiple = () => {
                 Get Started
               </Button>
             </div>
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <img className="h-[471px]" src="cta-multiple-1.avif" />
-            </div>
-          </div>
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
-            <div className="lg:w-2/3">
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col lg:flex-row items-center justify-between gap-10"
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="lg:w-2/3"
+            >
               <img className="h-[471px]" src="cta-multiple-2.avif" />
-            </div>
+            </motion.div>
             <div className="flex flex-col w-full lg:w-2/3">
               <h2 className="text-4xl lg:text-5xl font-[500] w-full lg:w-1/2 leading-snug">
                 Real-Time Collaboration
@@ -39,8 +66,14 @@ const CtaMultiple = () => {
                 Get Started
               </Button>
             </div>
-          </div>
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col lg:flex-row items-center justify-between gap-10"
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
             <div className="flex flex-col w-full lg:w-2/3">
               <h2 className="text-4xl lg:text-5xl font-[500] w-full lg:w-1/2 leading-snug">
                 Advanced Scheduling Tools
@@ -54,10 +87,14 @@ const CtaMultiple = () => {
                 Get Started
               </Button>
             </div>
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
               <img className="h-[471px]" src="cta-multiple-3.avif" />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </div>
