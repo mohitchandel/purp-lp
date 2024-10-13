@@ -1,7 +1,7 @@
 ![wkiDExDSBzoLhAW6OwFzRUDd6E](https://github.com/user-attachments/assets/00c395c6-6f9d-4069-86f2-03155abe0cdf)
 
 
-# Free SaaS Template
+# Free Template
 
 This project is a replica of the [Najm Framer Template](https://najm.framer.website/) built using **Next.js**, **ShadCN UI**, and **Framer Motion**. This template is free for everyone to use and customize according to their needs.
 
