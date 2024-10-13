@@ -7,7 +7,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "./ui/button";
 import { Hexagon, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 

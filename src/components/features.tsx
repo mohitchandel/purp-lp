@@ -1,10 +1,10 @@
-import { MoveUpRight, Rocket, Sparkles, Upload } from "lucide-react";
+import { MoveUpRight } from "lucide-react";
 
 const Features = () => {
   return (
-    <div className="py-12 px-6 mt-20">
+    <div className="py-24 px-6 mt-20">
       <div className="container mx-auto md:max-w-[1200px]">
-        <h1 className="font-semibold text-6xl max-w-2xl leading-snug">
+        <h1 className="font-semibold text-4xl lg:text-6xl max-w-2xl leading-snug">
           Transforming Imagination into{" "}
           <span className="text-primary">Reality</span>
         </h1>
@@ -14,8 +14,8 @@ const Features = () => {
           visuals to timeless craftsmanship, and witness how AI can turn your
           wildest ideas into stunning realities.
         </p>
-        <div className="grid grid-cols-5 gap-5 mt-10">
-          <div className="col-span-2 h-[324px] hover:text-white hover:bg-primary dark:hover:bg-primary rounded-2xl p-6 dark:bg-zinc-800 bg-zinc-200 group">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 mt-10">
+          <div className="lg:col-span-2 h-[324px] hover:text-white hover:bg-primary dark:hover:bg-primary rounded-2xl p-6 dark:bg-zinc-800 bg-zinc-200 group">
             <div className="h-full flex flex-col justify-between">
               <div className="flex">
                 <p className="leading-tight">
@@ -30,7 +30,7 @@ const Features = () => {
               <h3 className="text-4xl font-[500]">Witness the Future</h3>
             </div>
           </div>
-          <div className="col-span-3 h-[324px] hover:text-white hover:bg-primary dark:hover:bg-primary rounded-2xl p-6 dark:bg-zinc-800 bg-zinc-200 group">
+          <div className="lg:col-span-3 h-[324px] hover:text-white hover:bg-primary dark:hover:bg-primary rounded-2xl p-6 dark:bg-zinc-800 bg-zinc-200 group">
             <div className="h-full flex flex-col justify-between">
               <div className="flex">
                 <div className="leading-tight w-full">
@@ -48,7 +48,7 @@ const Features = () => {
             </div>
           </div>
 
-          <div className="col-span-3 h-[324px] hover:text-white hover:bg-primary dark:hover:bg-primary rounded-2xl p-6 dark:bg-zinc-800 bg-zinc-200 group">
+          <div className="lg:col-span-3 h-[324px] hover:text-white hover:bg-primary dark:hover:bg-primary rounded-2xl p-6 dark:bg-zinc-800 bg-zinc-200 group">
             <div className="h-full flex flex-col justify-between">
               <div className="flex">
                 <div className="leading-tight w-full">
@@ -65,7 +65,7 @@ const Features = () => {
               <h3 className="text-4xl font-[500]">Synergy and Style</h3>
             </div>
           </div>
-          <div className="col-span-2 h-[324px] hover:text-white hover:bg-primary dark:hover:bg-primary rounded-2xl p-6 dark:bg-zinc-800 bg-zinc-200 group">
+          <div className="lg:col-span-2 h-[324px] hover:text-white hover:bg-primary dark:hover:bg-primary rounded-2xl p-6 dark:bg-zinc-800 bg-zinc-200 group">
             <div className="h-full flex flex-col justify-between">
               <div className="flex">
                 <p className="leading-tight">

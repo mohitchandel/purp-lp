@@ -5,9 +5,9 @@ const CtaMultiple = () => {
     <div className="py-24 px-6">
       <div className="container mx-auto max-w-[1200px]">
         <div className="flex flex-col gap-32">
-          <div className="flex items-center justify-between gap-10">
-            <div className="flex flex-col w-2/3">
-              <h2 className="text-5xl font-[500] w-1/2 leading-snug">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+            <div className="flex flex-col w-full lg:w-2/3">
+              <h2 className="text-4xl lg:text-5xl font-[500] w-full lg:w-1/2 leading-snug">
                 High-Resolution Outputs
               </h2>
               <p className="max-w-lg my-5">
@@ -23,12 +23,12 @@ const CtaMultiple = () => {
               <img className="h-[471px]" src="cta-multiple-1.avif" />
             </div>
           </div>
-          <div className="flex items-center justify-between gap-10">
-            <div className="w-2/3">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+            <div className="lg:w-2/3">
               <img className="h-[471px]" src="cta-multiple-2.avif" />
             </div>
-            <div className="flex flex-col ">
-              <h2 className="text-5xl font-[500] w-1/2 leading-snug">
+            <div className="flex flex-col w-full lg:w-2/3">
+              <h2 className="text-4xl lg:text-5xl font-[500] w-full lg:w-1/2 leading-snug">
                 Real-Time Collaboration
               </h2>
               <p className="max-w-lg my-5">
@@ -40,9 +40,9 @@ const CtaMultiple = () => {
               </Button>
             </div>
           </div>
-          <div className="flex items-center justify-between gap-10">
-            <div className="flex flex-col w-2/3">
-              <h2 className="text-5xl font-[500] w-2/3 leading-snug">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+            <div className="flex flex-col w-full lg:w-2/3">
+              <h2 className="text-4xl lg:text-5xl font-[500] w-full lg:w-1/2 leading-snug">
                 Advanced Scheduling Tools
               </h2>
               <p className="max-w-lg my-5">

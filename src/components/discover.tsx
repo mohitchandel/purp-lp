@@ -4,7 +4,7 @@ const Discover = () => {
   return (
     <div className="py-12 px-6 mt-20">
       <div className="container mx-auto md:max-w-[1200px]">
-        <h1 className="font-semibold text-6xl max-w-2xl leading-snug">
+        <h1 className="font-semibold text-4xl lg:text-6xl max-w-2xl leading-snug">
           Unleash Your <span className="text-primary">Creativity</span>
         </h1>
         <p className="text-lg text-secondary-content max-w-2xl mt-2 leading-tight">
@@ -12,7 +12,7 @@ const Discover = () => {
           into stunning designs effortlessly. Follow these simple steps to turn
           your vision into reality.
         </p>
-        <div className="grid grid-cols-3 gap-5 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-8">
           <div className="flex flex-col p-6 bg-zinc-200 dark:bg-zinc-800 rounded-2xl">
             <div className=" bg-primary w-fit p-4 rounded-full">
               <Upload className="text-white" />
