@@ -56,7 +56,7 @@ const Carousel = () => {
     }
   }, [isAnimating]);
   return (
-    <div className="py-24 px-6">
+    <div className="py-12 px-6 mt-20">
       <div className="container mx-auto md:max-w-[1200px]">
         <h1 className="font-semibold text-4xl lg:text-6xl max-w-2xl leading-snug">
           Customer Success <span className="text-primary">Stories</span>
@@ -95,7 +95,7 @@ const Carousel = () => {
             .map((testimonial, index) => (
               <div
                 key={`${testimonial.id}-${index}`}
-                className="w-2/4 lg:w-1/4 flex-shrink-0 px-2"
+                className="w-1/2 lg:w-1/4 flex-shrink-0 px-2"
               >
                 <div className="bg-zinc-200 dark:bg-zinc-800 p-6 rounded-lg h-full">
                   <div className="flex items-center mb-4">

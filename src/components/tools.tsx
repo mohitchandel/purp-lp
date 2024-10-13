@@ -2,7 +2,7 @@ import { VerticalMarquee } from "./vertical-maruee";
 
 const Tools = () => {
   return (
-    <div className="py-24 md:px-0 px-6 overflow-hidden">
+    <div className="py-12 md:px-0 px-6 overflow-hidden mt-20">
       <div className="container md:max-w-[1200px] mx-auto bg-zinc-200 dark:bg-zinc-800 bg-opacity-0.5 overflow-hidden rounded-3xl px-10">
         <div className="flex flex-col lg:flex-row py-12 lg:py-2">
           <div className="flex flex-col justify-center">

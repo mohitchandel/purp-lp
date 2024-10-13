@@ -40,11 +40,11 @@ const Faq = () => {
   ];
 
   return (
-    <div className="py-24 md:px-0 px-6 overflow-hidden">
+    <div className="py-12 md:px-0 px-6 overflow-hidden mt-20">
       <div className="relative container md:max-w-[1200px] mx-auto bg-zinc-200 dark:bg-zinc-800 bg-opacity-0.5 overflow-hidden rounded-3xl px-10 py-12">
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
           <div className="flex flex-col justify-center">
-            <h1 className="text-4xl lg:text-6xl font-semibold leading-snug ">
+            <h1 className="text-4xl lg:text-6xl font-semibold leading-snug">
               Frequently Asked <span className="text-primary">Questions</span>
             </h1>
             <p className="text-lg text-secondary-content max-w-lg mt-1 leading-tight mb-8">
@@ -61,7 +61,7 @@ const Faq = () => {
                   key={index}
                   className="py-4 border-b border-zinc-300 dark:border-zinc-700"
                 >
-                  <AccordionTrigger className="text-xl flex">
+                  <AccordionTrigger className="text-md font-bold text-start">
                     {item.title}
                   </AccordionTrigger>
                   <AccordionContent>{item.description}</AccordionContent>

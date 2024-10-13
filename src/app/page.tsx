@@ -1,3 +1,4 @@
+import Blogs from "@/components/blogs";
 import Carousel from "@/components/carousel";
 import CtaMultiple from "@/components/cta-multiple";
 import Discover from "@/components/discover";
@@ -6,6 +7,7 @@ import Features from "@/components/features";
 import Hero from "@/components/hero";
 import PageMarquee from "@/components/page-marquee";
 import Pricing from "@/components/pricing";
+import SingleCta from "@/components/single-cta";
 import Tools from "@/components/tools";
 
 export default function Home() {
@@ -20,6 +22,8 @@ export default function Home() {
       <Tools />
       <Carousel />
       <Faq />
+      <Blogs />
+      <SingleCta />
     </>
   );
 }

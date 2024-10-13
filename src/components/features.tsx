@@ -2,7 +2,7 @@ import { MoveUpRight } from "lucide-react";
 
 const Features = () => {
   return (
-    <div className="py-24 px-6 mt-20">
+    <div className="py-12 px-6 mt-20">
       <div className="container mx-auto md:max-w-[1200px]">
         <h1 className="font-semibold text-4xl lg:text-6xl max-w-2xl leading-snug">
           Transforming Imagination into{" "}

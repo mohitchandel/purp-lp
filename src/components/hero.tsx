@@ -22,10 +22,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="absolute bottom-[-45%] lg:bottom-[-32%] right-[-8%] overflow-hidden">
-          <img
-            className="lg:w-[610px] w-[250px]"
-            src="https://framerusercontent.com/images/cLhE0zz9KoEfqjG2JcfNsvEDpA0.png"
-          />
+          <img className="lg:w-[610px] w-[250px]" src="/hero-img.png" />
         </div>
       </div>
     </div>
