@@ -57,7 +57,11 @@ const Hero = () => {
             variants={itemVariants}
           >
             <Button size="lg">Get Started</Button>
-            <Link href="#" className="hover:underline">
+            <Link
+              target="_blank"
+              href="https://mohitchandel.in"
+              className="hover:underline"
+            >
               Hire Mohit
             </Link>
           </motion.div>

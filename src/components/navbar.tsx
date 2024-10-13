@@ -41,7 +41,8 @@ const Navbar = () => {
 
         <div className="flex items-center space-x-4">
           <Link
-            href="#"
+            target="_blank"
+            href="https://mohitchandel.in"
             className="font-outfit text-lg dark:text-white text-slate-800 hover:underline"
           >
             Hire Mohit

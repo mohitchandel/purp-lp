@@ -50,8 +50,14 @@ const Footer = () => {
         <Separator className="my-4 bg-zinc-300 dark:bg-zinc-700" />
         <div className="flex flex-col md:flex-row justify-between items-center text-sm">
           <p>
-            Developed by <Link href="https://mohitchandel.in">Mohit</Link> |
-            Designed By <Link href="https://templyo.io/templates">Templyo</Link>
+            Developed by{" "}
+            <Link target="_blank" href="https://mohitchandel.in">
+              Mohit
+            </Link>{" "}
+            | Designed By{" "}
+            <Link target="_blank" href="https://templyo.io/templates">
+              Templyo
+            </Link>
           </p>
           <div className="flex space-x-4 mt-2 md:mt-0">
             <Link href="#" className="hover:underline text-zinc-500">
